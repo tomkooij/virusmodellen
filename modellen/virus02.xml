@@ -26,6 +26,6 @@ S = N - I - R - D
 
 t = t + dt
 
-R0 = i_f / (r_f)
+R0 = i_f / (r_f + m_f)
 </modelregels>
 </modelleertaal>
