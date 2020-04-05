@@ -5,9 +5,10 @@ N = 1000
 I = 0,01 * N
 R = 0
 S = N - I
-' 
+ 
 i_f = 1,2
 r_f = 0,23
+m_f = 0,02
 
 t = 0
 dt = 0,01
@@ -17,18 +18,22 @@ dt = 0,01
 ' S(usceptible) aantal vatbaar
 ' I(nfteced) aantal geinfecteerd
 ' R(ecoverd) aantal genezen
+' D(ead) aantal overledenen
 
 infectiekans = i_f * I / N
 
-' veranderingen S -> I -> R
 ' stroom:
 '    S -(dI)-> I -(dR)-> R
+'               \-(dD)-> D
+
 dI = infectiekans * S * dt
 dR = r_f * I * dt
+dD = m_f * I * dt
 
 S = S - dI
-I = I + dI - dR
+I = I + dI - dR - dD
 R = R + dR
+D = D + dD
 
 t = t + dt
 
@@ -37,6 +42,6 @@ als t > 4 dan
   i_f = 0.5
 eindals
 
-R0 = i_f / (r_f)
+R0 = i_f / (r_f + m_f)
 </modelregels>
 </modelleertaal>
