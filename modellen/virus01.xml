@@ -1,14 +1,14 @@
 <modelleertaal>
 N=50
 <startwaarden>
-I = 0,01
-G = 0
-V = 1 - I
+N = 100000
+I = 0,01 * N
+R = 0
+S = 1 - I
 
 i_f = 1,2
 r_f = 0,23
 
-Pop = 100000
 Vatbaar = Pop
 Infected = 0
 Overleden = 0
@@ -22,12 +22,8 @@ dG = r_f * I
 dV = - i_f * V * I
 
 I = I + dI
-G = G + dG
-V = V + dV
-
-Infected = Pop * I
-Genezen = Pop * G
-Vatbaar = Pop * V
+R = R + dR
+S = N - I - R
 
 t = t + dt
 

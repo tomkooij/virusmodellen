@@ -1,4 +1,5 @@
 ﻿<modelleertaal>
+N = 3000
 <startwaarden>
 N = 1000
 I = 0,01 * N
